@@ -21,16 +21,15 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: pytorch
+          - image: pytorch-cpu
             context: ./
-            dockerfile: ./Dockerfile
+            dockerfile: ./cpu-baseimage.dockerfile
             buildargs: |
-              SOURCE=core.harbor.pp.kapernikov.com/hub/node:20
-              ENVNAME=env.prod
-              RUNSOURCE=nginx:stable-alpine
-              GIT_COMMIT_TAG=${{  github.ref_name }}
-              GIT_COMMIT_HASH=${{ github.sha }}                        
-
+              DUMMY=yes
+          - image: pytorch-cuda
+            dockerfile: ./cuda-baseimage.dockerfile
+            buildargs: |
+              DUMMY=yes
     permissions:
       contents: read
       packages: write
