@@ -1,0 +1,18 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - dependencies
+  categories:
+    - title: Security
+      labels:
+        - "security"
+    - title: Breaking changes 🚧
+      labels:
+        - breaking-change
+    - title: Bugfixes 🛠
+      labels:
+        - bug
+    - title: Features 🎉
+      labels:
+        - "*"
