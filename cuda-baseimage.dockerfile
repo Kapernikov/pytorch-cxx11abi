@@ -1,7 +1,7 @@
 # NVIDIA CUDA Development Environment with PyTorch
 # This Dockerfile creates a comprehensive CUDA-enabled environment with PyTorch built from source.
 # Build process could take 10+ hours. Change MAX_JOBS for faster building time.
-FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
+FROM nvidia/cuda:12.8.1-devel-ubuntu22.04
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /opt
 # apt packages ------------------------------------------------------------------------------------------------
