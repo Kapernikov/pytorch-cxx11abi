@@ -1,7 +1,7 @@
 # PyTorch
 # This Dockerfile creates a comprehensive environment with PyTorch built from source.
 # Build process could take 10+ hours. Change MAX_JOBS for faster building time.
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /opt
 # apt packages ------------------------------------------------------------------------------------------------
