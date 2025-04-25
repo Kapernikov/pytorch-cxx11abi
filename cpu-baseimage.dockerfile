@@ -11,7 +11,7 @@ RUN apt-get -y update && \
                        libyaml-cpp-dev wget zip python3 python3-pip python3-dev pybind11-dev && \
     pip install --upgrade pip && \
 # some pip packages -------------------------------------------------------------------------------------------
-    pip install numpy pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
+    pip install numpy==1.26.* pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
 # compiled from source dependencies ---------------------------------------------------------------------------
 # lastool  ---------------------------------------------------------------------------------------------------
     mkdir /opt/build && mkdir /opt/deps && cd /opt/deps &&  \
@@ -24,7 +24,7 @@ RUN apt-get -y update && \
     cd pytorch && \
     git submodule sync && \
     git submodule update --init --recursive && \
-    _GLIBCXX_USE_CXX11_ABI=1 MAX_JOBS=4  python3 setup.py bdist_wheel && \
+    _GLIBCXX_USE_CXX11_ABI=1 MAX_JOBS=4 USE_NINJA=1   python3 setup.py bdist_wheel && \
     pip install dist/torch-*.whl && \
     cd build && cmake --install . --prefix /usr/local && \
 # cleanup the source deps files
