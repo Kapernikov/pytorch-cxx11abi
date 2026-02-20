@@ -18,7 +18,7 @@ RUN apt-get -y update && \
     python3.12 -m ensurepip && \
     python3.12 -m pip install --upgrade pip && \
 # some pip packages -------------------------------------------------------------------------------------------
-    python3.12 -m pip install "numpy>=2.0" pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
+    python3.12 -m pip install --ignore-installed "numpy>=2.0" pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
 # compiled from source dependencies ---------------------------------------------------------------------------
 # lastool  ---------------------------------------------------------------------------------------------------
     mkdir /opt/build && mkdir /opt/deps && cd /opt/deps &&  \
