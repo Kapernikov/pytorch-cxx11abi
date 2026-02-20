@@ -27,8 +27,9 @@ RUN apt-get -y update && \
 # PyTorch, with cuda support ---------------------------------------------------------------------------------
 # options : MAX_JOBS core build. c++11 abi. TORCH_CUDA_ARCH_LIST controls which gpu can be used
     cd /opt/deps && \
-    git clone --depth 1  --recursive https://github.com/pytorch/pytorch && \
+    git clone --recursive https://github.com/pytorch/pytorch && \
     cd pytorch && \
+    git checkout 8fff7e3 && \
     git submodule sync && \
     git submodule update --init --recursive && \
     GLIBCXX_USE_CXX11_ABI=1 USE_NINJA=1 MAX_JOBS=2 USE_CUDA=1 USE_CUDNN=1 TORCH_CUDA_ARCH_LIST="8.0" python3.12 setup.py bdist_wheel && \
