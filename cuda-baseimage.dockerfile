@@ -23,7 +23,7 @@ RUN apt-get -y update && \
 # lastool  ---------------------------------------------------------------------------------------------------
     mkdir /opt/build && mkdir /opt/deps && cd /opt/deps &&  \
     git clone https://github.com/LAStools/LAStools && \
-    cd LAStools && git checkout 9bdc92c && cmake -DCMAKE_BUILD_TYPE=Release . && make -j install && \
+    cd LAStools && git checkout 9bdc92c && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 . && make -j install && \
 # PyTorch, with cuda support ---------------------------------------------------------------------------------
 # options : MAX_JOBS core build. c++11 abi. TORCH_CUDA_ARCH_LIST controls which gpu can be used
     cd /opt/deps && \
