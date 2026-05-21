@@ -20,7 +20,7 @@ RUN apt-get -y update && \
                        libjsoncpp-dev libtbb-dev liblz4-dev \
                        libyaml-cpp-dev wget zip python3 python3-pip python3-dev pybind11-dev \
                        intel-oneapi-mkl-devel && \
-    pip install --upgrade pip setuptools wheel && \
+    pip install --upgrade pip setuptools wheel cmake && \
 # some pip packages -------------------------------------------------------------------------------------------
     pip install numpy==1.26.* pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
 # compiled from source dependencies ---------------------------------------------------------------------------
