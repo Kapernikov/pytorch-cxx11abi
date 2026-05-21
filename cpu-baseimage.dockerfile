@@ -39,7 +39,7 @@ RUN apt-get -y update && \
         BLAS=MKL MKLROOT=${MKLROOT} USE_MKLDNN=1 \
         python3 setup.py bdist_wheel && \
     pip install dist/torch-*.whl && \
-    python3 -c "import torch; print(torch.__config__.show())" | tee /opt/torch_config.txt && \
+    (cd / && python3 -c "import torch; print(torch.__config__.show())") | tee /opt/torch_config.txt && \
     grep -q 'USE_MKL=ON' /opt/torch_config.txt && \
     grep -qi 'BLAS_INFO=mkl' /opt/torch_config.txt && \
     cd build && cmake --install . --prefix /usr/local && \
