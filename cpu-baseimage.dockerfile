@@ -13,14 +13,14 @@ RUN apt-get -y update && \
         > /etc/apt/sources.list.d/oneAPI.list
 # MKL env (set before PyTorch build so cmake's FindMKL picks it up) -------------------------------------------
 ENV MKLROOT=/opt/intel/oneapi/mkl/latest
-ENV LD_LIBRARY_PATH=${MKLROOT}/lib/intel64:${LD_LIBRARY_PATH}
+ENV LD_LIBRARY_PATH=${MKLROOT}/lib/intel64
 # apt packages ------------------------------------------------------------------------------------------------
 RUN apt-get -y update && \
     apt-get -y install build-essential cmake curl git libeigen3-dev \
                        libjsoncpp-dev libtbb-dev liblz4-dev \
                        libyaml-cpp-dev wget zip python3 python3-pip python3-dev pybind11-dev \
                        intel-oneapi-mkl-devel && \
-    pip install --upgrade pip && \
+    pip install --upgrade pip setuptools wheel && \
 # some pip packages -------------------------------------------------------------------------------------------
     pip install numpy==1.26.* pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
 # compiled from source dependencies ---------------------------------------------------------------------------
