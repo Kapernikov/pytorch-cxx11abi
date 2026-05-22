@@ -9,7 +9,7 @@ RUN apt-get -y update && \
     apt-get -y install build-essential cmake curl git libeigen3-dev \
                        libjsoncpp-dev libtbb-dev liblz4-dev \
                        libyaml-cpp-dev wget zip python3 python3-pip python3-dev pybind11-dev && \
-    pip install --upgrade pip && \
+    pip install --upgrade pip setuptools wheel "cmake>=3.27,<4" && \
 # some pip packages -------------------------------------------------------------------------------------------
     pip install numpy==1.26.* pyyaml typing_extensions future six requests dataclasses minio dash plotly pandas && \
 # compiled from source dependencies ---------------------------------------------------------------------------
